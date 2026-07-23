@@ -6,5 +6,12 @@ export default defineConfig({
   server: {
     open: false,
   },
+  preview: {
+    host: '0.0.0.0',
+    allowedHosts: [
+      'mahesh-portfolio-00r8.onrender.com',
+      '.gwc-sys.online',
+    ],
+  },
 });
 
