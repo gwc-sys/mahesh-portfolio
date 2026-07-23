@@ -66,7 +66,7 @@ export function ContactSection() {
           id="contact-title"
           eyebrow="Contact"
           title="Let us build something useful, elegant, and reliable."
-          description="Send a message for full stack development roles, project collaboration, internships, or freelance work."
+          description="Send a message about full-stack development, AI, data, cloud projects, professional opportunities, or collaboration."
         />
 
         <motion.div
@@ -79,7 +79,8 @@ export function ContactSection() {
           <motion.aside variants={slideInLeft} className="glass-panel rounded-2xl p-6 lg:p-8">
             <h3 className="text-2xl font-extrabold text-slate-950 dark:text-white">Contact details</h3>
             <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
-              I am open to opportunities where thoughtful frontend work meets dependable backend systems.
+              I am open to opportunities where AI, reliable data, scalable APIs, and thoughtful product experiences
+              come together.
             </p>
 
             <div className="mt-8 space-y-4">

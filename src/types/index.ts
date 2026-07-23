@@ -43,7 +43,7 @@ export interface Project {
   features: string[];
   githubUrl?: string;
   liveUrl?: string;
-  status?: 'Live' | 'In Progress' | 'Placeholder';
+  status?: 'Live' | 'Completed' | 'In Progress';
 }
 
 export interface ExperienceItem {
@@ -60,6 +60,9 @@ export interface Certification {
   description: string;
   accent: string;
   icon: IconType;
+  documentUrl: string;
+  documentLabel: string;
+  credentialId?: string;
 }
 
 export interface ContactFormValues {

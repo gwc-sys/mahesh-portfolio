@@ -14,7 +14,8 @@ export function Footer() {
             {personalInfo.name}
           </a>
           <p className="mt-2 max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-400">
-            Full stack developer portfolio built with React, TypeScript, Tailwind CSS, Framer Motion, and EmailJS.
+            AI, data, and full-stack engineering portfolio built with React, TypeScript, Tailwind CSS, Framer Motion,
+            and EmailJS.
           </p>
         </div>
 

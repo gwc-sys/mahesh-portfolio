@@ -2,35 +2,26 @@ import type { ExperienceItem } from '../types';
 
 export const experienceItems: ExperienceItem[] = [
   {
-    company: 'Independent Developer',
-    position: 'Full Stack Developer',
-    duration: '2024 - Present',
-    location: 'Remote',
+    company: 'Hruta Solutions',
+    position: 'Full-Stack Developer Intern',
+    duration: 'March 2025 - July 2025',
+    location: 'Pune, Maharashtra',
     responsibilities: [
-      'Built responsive React and TypeScript interfaces with reusable component systems.',
-      'Integrated backend services with Django, FastAPI, Firebase, and SQL-backed workflows.',
-      'Designed portfolio-ready products with authentication, dashboards, maps, and deployment paths.',
+      'Developed responsive React.js and Tailwind CSS interfaces for consistent usability across devices.',
+      'Designed RESTful APIs with Node.js and Express.js and optimized MongoDB data operations.',
+      'Implemented JWT authentication and authorization for secure account access.',
+      'Supported AWS S3, EC2, Lambda, and CloudFormation deployment workflows in an Agile team environment.',
     ],
   },
   {
-    company: 'Academic Project Team',
-    position: 'Frontend and Integration Lead',
-    duration: '2023 - 2024',
-    location: 'India',
+    company: 'Independent Projects',
+    position: 'Full-Stack & AI Project Developer',
+    duration: '2025 - Present',
+    location: 'Pune, India · Remote',
     responsibilities: [
-      'Led UI architecture for project demos, stakeholder walkthroughs, and rapid iteration cycles.',
-      'Connected frontend experiences to realtime data sources, map services, and cloud databases.',
-      'Documented technical decisions and coordinated feature delivery across a small project team.',
-    ],
-  },
-  {
-    company: 'Cloud and ML Learning Labs',
-    position: 'Certified Learner',
-    duration: '2023',
-    location: 'Hybrid',
-    responsibilities: [
-      'Completed AWS Academy coursework covering cloud foundations and machine learning fundamentals.',
-      'Applied cloud concepts to deployment, storage, security, and scalable web application thinking.',
+      'Build and maintain public projects with React, TypeScript, Vite, Tailwind CSS, Express.js, FastAPI, and Django.',
+      'Develop AI-assisted healthcare, vehicle monitoring, wildlife tracking, and full-stack product experiences.',
+      'Integrate Firebase, Appwrite, MongoDB, location APIs, GitHub Actions, and Render deployment workflows.',
     ],
   },
 ];

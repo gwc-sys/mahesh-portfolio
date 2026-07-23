@@ -1,98 +1,118 @@
-# Mahesh Modern Portfolio
+# Mahesh Raskar Portfolio
 
-A premium responsive developer portfolio built with React, Vite, TypeScript, Tailwind CSS, React Router, Framer Motion, React Icons, and EmailJS.
+The source for [gwc-sys.online](https://gwc-sys.online), a responsive portfolio for Mahesh Raskar featuring verified
+GitHub projects, professional experience, education, certifications, research, skills, and contact information.
+
+## Stack
+
+- React 19 and TypeScript
+- Vite 8
+- Tailwind CSS 3
+- Framer Motion
+- React Router
+- React Icons
+- EmailJS
 
 ## Features
 
-- Responsive hero, about, skills, projects, experience, certifications, contact, and footer sections
-- Dark and light theme with local storage persistence
-- Framer Motion page transitions, scroll reveal, hover states, stagger effects, and progress bar
-- Animated typing effect in the hero section
-- EmailJS contact form with client-side validation
-- Active navigation highlighting and smooth scrolling
-- Local generated image assets for the hero, projects, and Open Graph preview
-- SEO-friendly HTML metadata, manifest, and robots file
+- Responsive hero, about, skills, projects, experience, credentials, contact, and footer sections
+- Verified links to the `gwc-sys` GitHub profile and public repositories
+- Light and dark themes with local-storage persistence
+- Accessible navigation, scroll progress, motion effects, and route handling
+- Validated EmailJS contact form
+- SEO metadata, Open Graph image, web manifest, favicon, and robots file
+- Production deployment on Render with a custom domain
 
-## Folder Structure
+## Project structure
 
-```txt
+```text
 src/
-├── assets/
-│   └── images/
-├── animations/
-├── components/
-│   ├── common/
-│   ├── layout/
-│   └── sections/
-├── data/
-├── hooks/
-├── layouts/
-├── pages/
-├── services/
-├── styles/
-├── types/
-├── utils/
-├── App.tsx
-└── main.tsx
+|-- animations/
+|-- assets/images/
+|-- components/
+|   |-- common/
+|   |-- layout/
+|   `-- sections/
+|-- data/
+|-- hooks/
+|-- layouts/
+|-- pages/
+|-- services/
+|-- styles/
+|-- types/
+|-- utils/
+|-- App.tsx
+`-- main.tsx
 ```
 
-## Getting Started
+## Local development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Production build:
+On Windows PowerShell systems that block `npm.ps1`, use:
 
-```bash
-npm run build
-npm run preview
+```powershell
+npm.cmd install
+npm.cmd run dev
 ```
 
-## EmailJS Setup
-
-1. Create an EmailJS account and add an email service.
-2. Create an EmailJS template with these variables:
-   - `from_name`
-   - `from_email`
-   - `subject`
-   - `message`
-3. Copy `.env.example` to `.env.local`.
-4. Fill in:
+## Quality checks
 
 ```bash
+npm run lint
+npm run build
+```
+
+The production bundle is generated in `dist/`.
+
+## EmailJS configuration
+
+Copy `.env.example` to `.env.local` and provide:
+
+```text
 VITE_EMAILJS_SERVICE_ID=your_service_id
 VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
-Restart the dev server after changing environment variables.
+The EmailJS template should accept `from_name`, `from_email`, `subject`, and `message`.
 
-## Personalization
+## Render deployment
 
-- Update profile copy and social links in `src/data/personal.ts`.
-- Update skills in `src/data/skills.ts`.
-- Update projects in `src/data/projects.ts`.
-- Replace `public/resume.pdf` with your final resume.
-- Replace generated images in `src/assets/images/` with real screenshots or portraits when available.
+Create a **Static Site** connected to `gwc-sys/mahesh-portfolio` and use:
 
-## Deploy to Vercel
+```text
+Branch: main
+Root Directory: leave empty
+Build Command: npm ci && npm run build
+Publish Directory: dist
+```
 
-1. Push the project to GitHub.
-2. Import the repository in Vercel.
-3. Set the framework preset to `Vite`.
-4. Use `npm run build` as the build command.
-5. Use `dist` as the output directory.
-6. Add EmailJS variables in Project Settings > Environment Variables.
-7. Deploy.
+For React Router, add this Render rewrite:
 
-## Deploy to Netlify
+```text
+Source: /*
+Destination: /index.html
+Action: Rewrite
+```
 
-1. Push the project to GitHub.
-2. Create a new Netlify site from the repository.
-3. Use `npm run build` as the build command.
-4. Use `dist` as the publish directory.
-5. Add EmailJS variables in Site Configuration > Environment Variables.
-6. Deploy.
+The custom domain configuration is:
 
+```text
+A      @      216.24.57.1
+CNAME  www    mahesh-portfolio-00r8.onrender.com
+```
+
+Render provisions and renews HTTPS automatically after domain verification.
+
+## Content sources
+
+- Personal and social links: `src/data/personal.ts`
+- GitHub-audited skills: `src/data/skills.ts`
+- Featured repositories: `src/data/projects.ts`
+- Professional experience: `src/data/experience.ts`
+- Credentials and publication: `src/data/certifications.ts`
+- Resume: `public/resume.pdf`

@@ -12,8 +12,8 @@ export function ExperienceTimeline() {
         <SectionHeading
           id="experience-title"
           eyebrow="Experience"
-          title="A timeline of hands-on development and applied learning."
-          description="Focused on practical delivery: user interfaces, backend integration, realtime systems, and cloud fundamentals."
+          title="Professional experience backed by public project work."
+          description="Hands-on delivery across responsive interfaces, REST APIs, authentication, MongoDB, AWS deployment, AI experiments, and IoT-enabled systems."
         />
 
         <motion.div
@@ -36,7 +36,7 @@ export function ExperienceTimeline() {
                   <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                     <div>
                       <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary dark:text-cyan-300">
-                        Step {index + 1}
+                        Experience {String(index + 1).padStart(2, '0')}
                       </p>
                       <h3 className="mt-2 text-2xl font-extrabold text-slate-950 dark:text-white">{item.position}</h3>
                       <p className="mt-1 font-semibold text-slate-700 dark:text-slate-200">{item.company}</p>

@@ -11,8 +11,8 @@ export function SkillsSection() {
         <SectionHeading
           id="skills-title"
           eyebrow="Skills"
-          title="A practical toolkit for building complete web products."
-          description="Each category blends implementation speed with architecture, maintainability, and clear user experience."
+          title="A technology stack verified across public source code."
+          description="These skills reflect manifests and authored files across 25 original public repositories; two forked repositories are excluded from the assessment."
         />
 
         <motion.div

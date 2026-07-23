@@ -8,8 +8,6 @@ import { Container } from '../common/Container';
 import { SectionHeading } from '../common/SectionHeading';
 
 function ProjectCard({ project }: { project: Project }) {
-  const isPlaceholder = project.status === 'Placeholder';
-
   return (
     <motion.article
       variants={slideUp}
@@ -58,22 +56,22 @@ function ProjectCard({ project }: { project: Project }) {
             href={project.githubUrl ?? '#projects'}
             target={project.githubUrl ? '_blank' : undefined}
             rel={project.githubUrl ? 'noreferrer' : undefined}
-            aria-disabled={isPlaceholder}
             className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-bold text-slate-800 transition hover:border-primary hover:text-primary dark:border-white/10 dark:text-slate-100 dark:hover:border-cyan-300 dark:hover:text-cyan-300"
           >
             <FaGithub className="h-4 w-4" aria-hidden="true" />
             GitHub
           </a>
-          <a
-            href={project.liveUrl ?? '#projects'}
-            target={project.liveUrl ? '_blank' : undefined}
-            rel={project.liveUrl ? 'noreferrer' : undefined}
-            aria-disabled={isPlaceholder}
-            className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white transition hover:bg-primary dark:bg-white dark:text-secondary dark:hover:bg-cyan-300"
-          >
-            <HiArrowTopRightOnSquare className="h-4 w-4" aria-hidden="true" />
-            Live Demo
-          </a>
+          {project.liveUrl ? (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white transition hover:bg-primary dark:bg-white dark:text-secondary dark:hover:bg-cyan-300"
+            >
+              <HiArrowTopRightOnSquare className="h-4 w-4" aria-hidden="true" />
+              Live Demo
+            </a>
+          ) : null}
         </div>
       </div>
     </motion.article>
@@ -87,8 +85,8 @@ export function ProjectsSection() {
         <SectionHeading
           id="projects-title"
           eyebrow="Projects"
-          title="Featured builds with real product surfaces."
-          description="A mix of full stack systems, realtime data ideas, and placeholders ready for your next polished case study."
+          title="Verified builds across AI, data, IoT, and product engineering."
+          description="Selected public repositories from GitHub, each linked directly to its source code and live experience where available."
         />
 
         <motion.div
@@ -102,6 +100,18 @@ export function ProjectsSection() {
             <ProjectCard key={project.name} project={project} />
           ))}
         </motion.div>
+
+        <div className="mt-10 flex justify-center">
+          <a
+            href="https://github.com/gwc-sys?tab=repositories"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-blue-600"
+          >
+            <FaGithub className="h-5 w-5" aria-hidden="true" />
+            View all 27 public repositories
+          </a>
+        </div>
       </Container>
     </section>
   );

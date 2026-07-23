@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { HiCheckBadge } from 'react-icons/hi2';
+import { HiArrowTopRightOnSquare, HiCheckBadge } from 'react-icons/hi2';
 import { slideUp, staggerContainer } from '../../animations/variants';
 import { certifications } from '../../data/certifications';
 import { Container } from '../common/Container';
@@ -11,9 +11,9 @@ export function CertificationsSection() {
       <Container>
         <SectionHeading
           id="certifications-title"
-          eyebrow="Certifications"
-          title="Cloud and machine learning foundations."
-          description="Credentials that support cloud-aware application development and a stronger understanding of modern platform capabilities."
+          eyebrow="Credentials & publication"
+          title="Credentials across technology, communication, and research."
+          description="Verified AWS Academy, Cisco, and University of Washington credentials alongside published engineering research."
         />
 
         <motion.div
@@ -21,17 +21,21 @@ export function CertificationsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-90px' }}
-          className="grid gap-5 md:grid-cols-3"
+          className="grid gap-5 md:grid-cols-2 xl:grid-cols-4"
         >
           {certifications.map((certification) => {
             const Icon = certification.icon;
 
             return (
-              <motion.article
+              <motion.a
                 key={certification.title}
+                href={certification.documentUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${certification.documentLabel}: ${certification.title}`}
                 variants={slideUp}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className="glass-panel relative overflow-hidden rounded-2xl p-6"
+                className="glass-panel group relative flex flex-col overflow-hidden rounded-2xl p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-cyan-300 dark:focus-visible:ring-offset-slate-950"
               >
                 <div
                   className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${certification.accent}`}
@@ -45,8 +49,17 @@ export function CertificationsSection() {
                 </div>
                 <h3 className="mt-6 text-xl font-extrabold text-slate-950 dark:text-white">{certification.title}</h3>
                 <p className="mt-2 text-sm font-bold text-primary dark:text-cyan-300">{certification.issuer}</p>
+                {certification.credentialId ? (
+                  <p className="mt-2 font-mono text-xs text-slate-500 dark:text-slate-400">
+                    Credential ID: {certification.credentialId}
+                  </p>
+                ) : null}
                 <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">{certification.description}</p>
-              </motion.article>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary transition group-hover:text-blue-600 dark:text-cyan-300 dark:group-hover:text-cyan-200">
+                  {certification.documentLabel}
+                  <HiArrowTopRightOnSquare className="h-4 w-4" aria-hidden="true" />
+                </span>
+              </motion.a>
             );
           })}
         </motion.div>

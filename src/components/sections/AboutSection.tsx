@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { HiAcademicCap, HiBriefcase, HiLightBulb, HiUserCircle } from 'react-icons/hi2';
+import { HiAcademicCap, HiBriefcase, HiLanguage, HiLightBulb, HiUserCircle } from 'react-icons/hi2';
 import { slideUp, staggerContainer } from '../../animations/variants';
 import { personalInfo } from '../../data/personal';
 import { Container } from '../common/Container';
@@ -26,6 +26,11 @@ const aboutCards = [
     body: personalInfo.objective,
     icon: HiLightBulb,
   },
+  {
+    title: 'Languages & Interests',
+    body: personalInfo.languagesAndInterests,
+    icon: HiLanguage,
+  },
 ];
 
 export function AboutSection() {
@@ -35,7 +40,7 @@ export function AboutSection() {
         <SectionHeading
           id="about-title"
           eyebrow="About me"
-          title="A developer who cares about clean systems and polished product moments."
+          title="Engineering useful products where AI, data, cloud, and experience connect."
           description={personalInfo.skillsSummary}
         />
 

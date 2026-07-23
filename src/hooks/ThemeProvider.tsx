@@ -1,14 +1,5 @@
-import { createContext, type PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react';
-
-type Theme = 'light' | 'dark';
-
-interface ThemeContextValue {
-  theme: Theme;
-  toggleTheme: () => void;
-  setTheme: (theme: Theme) => void;
-}
-
-const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
+import { type PropsWithChildren, useCallback, useEffect, useMemo, useState } from 'react';
+import { ThemeContext, type Theme } from './themeContext';
 
 const storageKey = 'mahesh-portfolio-theme';
 
@@ -28,14 +19,18 @@ const getPreferredTheme = (): Theme => {
 export function ThemeProvider({ children }: PropsWithChildren) {
   const [theme, setThemeState] = useState<Theme>(getPreferredTheme);
 
-  const setTheme = (nextTheme: Theme) => {
+  const setTheme = useCallback((nextTheme: Theme) => {
     setThemeState(nextTheme);
     window.localStorage.setItem(storageKey, nextTheme);
-  };
+  }, []);
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  const toggleTheme = useCallback(() => {
+    setThemeState((currentTheme) => {
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      window.localStorage.setItem(storageKey, nextTheme);
+      return nextTheme;
+    });
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -49,19 +44,8 @@ export function ThemeProvider({ children }: PropsWithChildren) {
       toggleTheme,
       setTheme,
     }),
-    [theme],
+    [setTheme, theme, toggleTheme],
   );
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
-
-export function useTheme() {
-  const context = useContext(ThemeContext);
-
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-
-  return context;
-}
-

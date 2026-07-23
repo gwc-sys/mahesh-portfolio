@@ -12,11 +12,11 @@ export function HomePage() {
   return (
     <motion.main variants={pageTransition} initial="initial" animate="animate" exit="exit">
       <HeroSection />
+      <CertificationsSection />
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
       <ExperienceTimeline />
-      <CertificationsSection />
       <ContactSection />
     </motion.main>
   );

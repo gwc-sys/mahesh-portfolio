@@ -1,43 +1,50 @@
-import { FaEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa6';
+import { FaEnvelope, FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
 import type { SocialLink } from '../types';
 
 export const personalInfo = {
-  name: 'Mahesh',
-  role: 'Full Stack Developer',
-  location: 'India',
-  email: 'mahesh@example.com',
+  name: 'Mahesh Raskar',
+  role: 'Full-Stack Developer | AI & Data Builder',
+  location: 'Pune, Maharashtra, India',
+  email: 'mahesh-raskar@outlook.com',
   resumeUrl: '/resume.pdf',
   headline:
-    'I design and build polished web applications with React, TypeScript, cloud services, and pragmatic product thinking.',
+    'I build AI-powered applications, scalable data systems, secure APIs, and cloud-ready products that turn real-world problems into useful software.',
   objective:
-    'To contribute to ambitious product teams as a full stack developer, building reliable user experiences, scalable APIs, and cloud-ready systems that solve real problems.',
+    'To build production-ready AI and data products where intelligent services, reliable pipelines, cloud infrastructure, APIs, and thoughtful user experiences work as one complete system.',
   about:
-    'I am a full stack developer focused on clean frontend architecture, dependable backend services, and thoughtful user experience. My work combines React, TypeScript, Python APIs, Firebase, Azure, and modern delivery practices.',
+    'I am a full-stack developer from Pune with hands-on experience building responsive web and mobile applications, REST APIs, authentication workflows, cloud deployments, and data-driven products. I also explore AI, machine learning, IoT, and location-aware systems.',
   education:
-    'Computer Science focused education with hands-on experience across web engineering, cloud foundations, machine learning foundations, and IoT-enabled application workflows.',
+    'Bachelor of Engineering in Electronics and Telecommunication Engineering at K J College of Engineering & Management Research (2023–present). Diploma in Computer Engineering from Marathwada Mitra Mandal’s College of Engineering (80%, completed 2023), Higher Secondary Education at Adarsh Shikshan Sanstha College of Commerce and Science (2017–2019), and SSC from New English School (77%, completed 2016).',
   experienceSummary:
-    'Experience building academic, prototype, and production-style applications that combine responsive interfaces, API integration, authentication, maps, databases, and deployment-ready code.',
+    'Completed a Full-Stack Developer internship at Hruta Solutions in Pune and continue building public projects that combine React, APIs, authentication, databases, cloud deployment, machine learning, maps, and IoT workflows.',
   skillsSummary:
-    'Frontend-heavy full stack profile with strength in React, TypeScript, Tailwind CSS, Django, FastAPI, Firebase, Azure MySQL, and collaborative tooling.',
+    'Public work spans React, Vite, TypeScript, Tailwind CSS, Express, FastAPI, Django, React Native, Firebase, Appwrite, MongoDB, Python ML, Git, and GitHub Actions.',
+  languagesAndInterests:
+    'Languages: Marathi (native), Hindi, and English. Interests include trekking, traveling, intelligent product development, cloud systems, and practical technology projects.',
   typingRoles: [
-    'React Developer',
-    'TypeScript Engineer',
-    'Backend API Builder',
-    'Cloud Learner',
-    'Product-Minded Coder',
+    'AI Engineer',
+    'Data Engineer',
+    'Full-Stack Developer',
+    'Cloud Platform Learner',
+    'Product Engineer',
   ],
 };
 
 export const socialLinks: SocialLink[] = [
   {
     label: 'GitHub',
-    href: 'https://github.com/',
+    href: 'https://github.com/gwc-sys',
     icon: FaGithub,
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/',
+    href: 'https://www.linkedin.com/in/mahesh-r-0a109b20a/',
     icon: FaLinkedinIn,
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/_mahesh.raskar/',
+    icon: FaInstagram,
   },
   {
     label: 'Email',

@@ -8,9 +8,9 @@ import { Container } from '../common/Container';
 import { SocialLinks } from '../common/SocialLinks';
 
 const stats = [
-  { value: '10+', label: 'Core technologies' },
-  { value: '2', label: 'Featured projects' },
-  { value: 'AWS', label: 'Certified learning' },
+  { value: '27', label: 'Public repositories' },
+  { value: '5', label: 'Featured projects' },
+  { value: '3', label: 'Engineering focus areas' },
 ];
 
 export function HeroSection() {
@@ -29,7 +29,7 @@ export function HeroSection() {
             variants={slideInLeft}
             className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-bold text-primary dark:border-cyan-300/20 dark:bg-cyan-300/10 dark:text-cyan-300"
           >
-            Available for full stack opportunities
+            Open to AI, data, and product engineering opportunities
           </motion.p>
 
           <motion.h1
@@ -98,8 +98,8 @@ export function HeroSection() {
               loading="eager"
             />
             <div className="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/70 bg-white/90 p-4 shadow-soft-xl backdrop-blur dark:border-white/10 dark:bg-slate-950/82">
-              <p className="text-sm font-bold text-slate-950 dark:text-white">Building products with precision</p>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">React + APIs + cloud-ready systems</p>
+              <p className="text-sm font-bold text-slate-950 dark:text-white">Building intelligent products with purpose</p>
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">AI + data + APIs + cloud-ready systems</p>
             </div>
           </motion.div>
         </motion.div>

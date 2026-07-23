@@ -13,7 +13,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    document.title = 'Mahesh | Full Stack Developer';
+    document.title = 'Mahesh Raskar | Full-Stack Developer';
     const timer = window.setTimeout(() => setIsLoading(false), 850);
 
     return () => window.clearTimeout(timer);
