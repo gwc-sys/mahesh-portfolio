@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #111827;
+}
+
+.dark body {
+  background: #020617;
+  color: #f8fafc;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+@layer base {
+  * {
+    @apply border-slate-200 dark:border-slate-800;
+  }
+
+  button,
+  a,
+  input,
+  textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-secondary;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  .glass-panel {
+    @apply border border-white/70 bg-white/85 shadow-soft-xl backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/80;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-accent to-emerald-400 bg-clip-text text-transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
