@@ -1,4 +1,15 @@
-import { TbBrain, TbCertificate, TbCloud, TbDatabase, TbFileText, TbMessageLanguage, TbShieldLock } from 'react-icons/tb';
+import {
+  TbBrain,
+  TbBrandCpp,
+  TbBrandPython,
+  TbCertificate,
+  TbCloud,
+  TbCode,
+  TbDatabase,
+  TbFileText,
+  TbMessageLanguage,
+  TbShieldLock,
+} from 'react-icons/tb';
 import type { Certification } from '../types';
 
 export const certifications: Certification[] = [
@@ -43,6 +54,46 @@ export const certifications: Certification[] = [
     documentUrl:
       'https://www.credly.com/badges/fab2ff2b-a322-40a4-95e6-a3a22d7942ac/linked_in_profile',
     documentLabel: 'View credential',
+  },
+  {
+    title: 'Cybersecurity Essentials',
+    issuer: 'Cisco Networking Academy · November 2021',
+    description:
+      'Course completion covering cybercriminal tactics, confidentiality, integrity, availability, security countermeasures, network defense, and cybersecurity law.',
+    accent: 'from-sky-500 to-cyan-500',
+    icon: TbShieldLock,
+    documentUrl: 'https://www.netacad.com/cybersecurity',
+    documentLabel: 'View Cisco course',
+  },
+  {
+    title: 'CLA: Programming Essentials in C',
+    issuer: 'Cisco Networking Academy & C++ Institute · June 2021',
+    description:
+      'Statement of Achievement for programming fundamentals in C, including coding basics, programming techniques, conventions, and core C language vocabulary.',
+    accent: 'from-blue-600 to-amber-500',
+    icon: TbCode,
+    documentUrl: 'https://www.netacad.com/programming',
+    documentLabel: 'View Cisco course',
+  },
+  {
+    title: 'PCAP: Programming Essentials in Python',
+    issuer: 'Cisco Networking Academy & OpenEDG Python Institute · August 2021',
+    description:
+      'Statement of Achievement covering Python 3 syntax, data structures, algorithms, functions, runtime tools, problem solving, and object-oriented programming.',
+    accent: 'from-blue-500 to-yellow-400',
+    icon: TbBrandPython,
+    documentUrl: '/certificates/pcap-programming-essentials-python.pdf',
+    documentLabel: 'View certificate',
+  },
+  {
+    title: 'CPA: Programming Essentials in C++',
+    issuer: 'Cisco Networking Academy & OpenEDG C++ Institute · December 2021',
+    description:
+      'Statement of Achievement covering core C++ programming tasks and the fundamental concepts and techniques of object-oriented programming.',
+    accent: 'from-indigo-600 to-blue-500',
+    icon: TbBrandCpp,
+    documentUrl: '/certificates/cpa-programming-essentials-cpp.pdf',
+    documentLabel: 'View certificate',
   },
   {
     title: 'Business English: Networking',

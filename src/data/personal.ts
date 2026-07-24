@@ -8,7 +8,7 @@ export const personalInfo = {
   email: 'mahesh-raskar@outlook.com',
   resumeUrl: '/resume.pdf',
   headline:
-    'I build AI-powered applications, scalable data systems, secure APIs, and cloud-ready products that turn real-world problems into useful software.',
+    'Building AI applications, scalable APIs, cloud platforms, and intelligent products.',
   objective:
     'To build production-ready AI and data products where intelligent services, reliable pipelines, cloud infrastructure, APIs, and thoughtful user experiences work as one complete system.',
   about:
@@ -22,11 +22,9 @@ export const personalInfo = {
   languagesAndInterests:
     'Languages: Marathi (native), Hindi, and English. Interests include trekking, traveling, intelligent product development, cloud systems, and practical technology projects.',
   typingRoles: [
+    'Full Stack Developer',
     'AI Engineer',
     'Data Engineer',
-    'Full-Stack Developer',
-    'Cloud Platform Learner',
-    'Product Engineer',
   ],
 };
 

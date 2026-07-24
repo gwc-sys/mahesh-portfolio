@@ -13,7 +13,7 @@ export function CertificationsSection() {
           id="certifications-title"
           eyebrow="Credentials & publication"
           title="Credentials across technology, communication, and research."
-          description="Verified AWS Academy, Cisco, and University of Washington credentials alongside published engineering research."
+          description="Credentials from AWS Academy, Cisco Networking Academy, OpenEDG, Coursera, and HackerRank alongside published engineering research."
         />
 
         <motion.div
