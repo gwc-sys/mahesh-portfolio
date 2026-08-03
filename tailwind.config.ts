@@ -13,8 +13,8 @@ const config: Config = {
         mist: '#F8FAFC',
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['Manrope', 'Inter', 'ui-sans-serif', 'system-ui'],
+        sans: ['JetBrains Mono', 'Consolas', 'ui-monospace', 'monospace'],
+        display: ['JetBrains Mono', 'Consolas', 'ui-monospace', 'monospace'],
       },
       boxShadow: {
         glow: '0 24px 80px rgba(59, 130, 246, 0.22)',

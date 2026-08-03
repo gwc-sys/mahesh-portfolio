@@ -1,5 +1,6 @@
 node_modules
 dist
+build-check
 .env
 .env.local
 .env.development.local
@@ -8,4 +9,13 @@ dist
 .DS_Store
 *.log
 .vite
+.venv
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tsbuildinfo/
+*.pem
+*.key
 

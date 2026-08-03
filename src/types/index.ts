@@ -38,7 +38,6 @@ export interface SkillCategory {
 export interface Project {
   name: string;
   description: string;
-  image: string;
   stack: string[];
   features: string[];
   githubUrl?: string;

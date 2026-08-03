@@ -1,28 +1,31 @@
 import { AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { LoadingScreen } from './components/common/LoadingScreen';
-import { ScrollProgress } from './components/common/ScrollProgress';
-import { ScrollToTop } from './components/common/ScrollToTop';
 import { RootLayout } from './layouts/RootLayout';
 import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 export default function App() {
   const location = useLocation();
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     document.title = 'Mahesh Raskar | Full-Stack Developer';
-    const timer = window.setTimeout(() => setIsLoading(false), 850);
+  }, [location.pathname]);
 
-    return () => window.clearTimeout(timer);
-  }, []);
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      if (location.hash) {
+        const target = document.getElementById(location.hash.slice(1));
+        target?.scrollIntoView({ block: 'start' });
+      } else {
+        window.scrollTo({ top: 0 });
+      }
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.hash, location.pathname]);
 
   return (
     <>
-      <LoadingScreen isLoading={isLoading} />
-      <ScrollProgress />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route element={<RootLayout />}>
@@ -31,7 +34,6 @@ export default function App() {
           </Route>
         </Routes>
       </AnimatePresence>
-      <ScrollToTop />
     </>
   );
 }

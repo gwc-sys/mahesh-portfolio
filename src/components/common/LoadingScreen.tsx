@@ -13,17 +13,13 @@ export function LoadingScreen({ isLoading }: LoadingScreenProps) {
           aria-label="Loading portfolio"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.35 } }}
-          className="fixed inset-0 z-[100] grid place-items-center bg-white dark:bg-secondary"
+          className="fixed inset-0 z-[100] grid place-items-center bg-[#030605]"
         >
           <div className="flex flex-col items-center gap-5">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 1.1, repeat: Infinity, ease: 'linear' }}
-              className="h-16 w-16 rounded-full border-4 border-slate-200 border-t-primary dark:border-slate-800 dark:border-t-accent"
-            />
             <div className="text-center">
-              <p className="font-display text-xl font-extrabold text-slate-950 dark:text-white">Mahesh</p>
-              <p className="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400">Preparing portfolio</p>
+              <p className="font-mono text-sm text-emerald-400"><span className="text-slate-600">$</span> initializing portfolio...</p>
+              <motion.div initial={{ width: 0 }} animate={{ width: 240 }} transition={{ duration: 0.75 }} className="mt-4 h-1 bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.8)]" />
+              <p className="mt-3 text-xs text-slate-500">loading modules <span className="animate-pulse">_</span></p>
             </div>
           </div>
         </motion.div>
