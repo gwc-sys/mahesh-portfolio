@@ -9,7 +9,7 @@ An interactive macOS-inspired portfolio built with React, TypeScript, Vite, Tail
 - Functional window controls, dragging, resizing, minimizing, maximizing, and restoration
 - Five original photographic wallpapers with a desktop context-menu picker
 - Responsive full-screen application panels on mobile
-- EmailJS-powered contact form and static resume download
+- Email-composer contact form and static resume download
 
 ## Development
 
@@ -27,17 +27,9 @@ npm run lint
 npm run build
 ```
 
-## Contact configuration
+## Contact
 
-The contact form uses EmailJS. Add these values to `.env.local` when message delivery is required:
-
-```env
-VITE_EMAILJS_SERVICE_ID=your_service_id
-VITE_EMAILJS_TEMPLATE_ID=your_template_id
-VITE_EMAILJS_PUBLIC_KEY=your_public_key
-```
-
-Without these variables, the rest of the portfolio remains fully functional and the contact form displays a configuration message.
+The validated contact form opens the visitor's email application with the recipient, subject, and message already filled in. It uses `mailto:mahesh-raskar@outlook.com` and requires no API keys, environment variables, or backend.
 
 ## Deployment
 
