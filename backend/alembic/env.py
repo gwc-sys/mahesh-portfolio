@@ -10,7 +10,10 @@ from app.models import entities  # noqa: F401
 config = context.config
 if config.config_file_name:
     fileConfig(config.config_file_name)
-config.set_main_option("sqlalchemy.url", get_settings().database_url.replace("+psycopg", ""))
+# Keep the explicit Psycopg 3 driver from DATABASE_URL. Removing ``+psycopg``
+# makes SQLAlchemy fall back to the legacy psycopg2 driver, which this project
+# intentionally does not install.
+config.set_main_option("sqlalchemy.url", get_settings().database_url)
 target_metadata = Base.metadata
 
 
