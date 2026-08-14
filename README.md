@@ -33,4 +33,6 @@ The validated contact form opens the visitor's email application with the recipi
 
 ## Deployment
 
-Deploy the generated `dist` directory after running `npm run build`. The portfolio is frontend-only and does not require Python, PostgreSQL, Docker, or a separate API service.
+The GitHub Actions workflow validates every pull request and main-branch push, then stores the production `dist` artifact. Render can deploy automatically from the connected Git repository. To trigger Render explicitly from GitHub Actions, add its deploy hook as the `RENDER_DEPLOY_HOOK_URL` repository secret.
+
+The portfolio is frontend-only and does not require Python, PostgreSQL, Docker, or a separate API service.

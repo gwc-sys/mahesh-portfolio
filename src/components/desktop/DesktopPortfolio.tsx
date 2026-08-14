@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { FormEvent, KeyboardEvent, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import { FormEvent, KeyboardEvent, lazy, ReactNode, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import {
   TbAddressBook, TbApps, TbBattery4, TbBrandGithub, TbBriefcase, TbBulb,
   TbCertificate, TbChevronRight, TbCode, TbDownload, TbExternalLink, TbFileCv,
@@ -30,6 +30,8 @@ const apps: AppDef[] = [
   { id: 'contact', label: 'Contact', icon: TbMail, color: 'pink' },
   { id: 'resume', label: 'Resume', icon: TbFileCv, color: 'green' },
 ];
+
+const GitHubReadme = lazy(() => import('./GitHubReadme'));
 
 const contents: Record<AppId, (open: (id: AppId) => void) => ReactNode> = {
   about: (open) => <AboutApp open={open} />,
@@ -140,7 +142,7 @@ function DesktopWindow({ state, app, children, close, minimize, maximize, focus,
 }
 
 function AboutApp({ open }: { open: (id: AppId) => void }) {
-  return <div className="about-layout"><aside className="settings-sidebar"><h3><TbSettings /> Profile</h3><button className="selected"><TbUser /> About Me</button><button onClick={() => open('skills')}><TbCode /> Skills</button><button onClick={() => open('experience')}><TbBriefcase /> Experience</button></aside><div className="about-main"><div className="profile-heading"><div className="avatar large">MR</div><div><h2>{personalInfo.name}</h2><p>{personalInfo.role}</p><span>{personalInfo.location}</span></div></div><p className="lead">{personalInfo.about}</p><div className="stat-grid"><Stat value={`${projects.length}`} label="Featured projects" /><Stat value={`${certifications.length}`} label="Certifications" /><Stat value={`${skillCategories.reduce((n, c) => n + c.skills.length, 0)}`} label="Skills & tools" /><Stat value="Open" label="To opportunities" /></div><div className="interest-row"><span>AI & ML</span><span>Cloud systems</span><span>Mobile</span><span>Full-stack</span></div><div className="button-row"><a className="primary-button" href={personalInfo.resumeUrl} target="_blank" rel="noreferrer">View Resume</a><button onClick={() => open('contact')}>Contact Me</button>{socialLinks.slice(0, 2).map((s) => <a key={s.label} href={s.href} target="_blank" rel="noreferrer">{s.label}</a>)}</div></div></div>;
+  return <div className="about-layout"><aside className="settings-sidebar"><h3><TbSettings /> Profile</h3><button className="selected"><TbUser /> About Me</button><button onClick={() => open('skills')}><TbCode /> Skills</button><button onClick={() => open('experience')}><TbBriefcase /> Experience</button></aside><div className="about-main"><div className="profile-heading"><div className="avatar large">MR</div><div><h2>{personalInfo.name}</h2><p>{personalInfo.role}</p><span>{personalInfo.location}</span></div></div><p className="lead">{personalInfo.about}</p><div className="stat-grid"><Stat value={`${projects.length}`} label="Featured projects" /><Stat value={`${certifications.length}`} label="Certifications" /><Stat value={`${skillCategories.reduce((n, c) => n + c.skills.length, 0)}`} label="Skills & tools" /><Stat value="Open" label="To opportunities" /></div><div className="interest-row"><span>AI & ML</span><span>Cloud systems</span><span>Mobile</span><span>Full-stack</span></div><div className="button-row"><a className="primary-button" href={personalInfo.resumeUrl} target="_blank" rel="noreferrer">View Resume</a><button onClick={() => open('contact')}>Contact Me</button>{socialLinks.slice(0, 2).map((s) => <a key={s.label} href={s.href} target="_blank" rel="noreferrer">{s.label}</a>)}</div><Suspense fallback={<div className="readme-status">Loading GitHub profile…</div>}><GitHubReadme /></Suspense></div></div>;
 }
 function Stat({ value, label }: { value: string; label: string }) { return <div className="stat"><strong>{value}</strong><span>{label}</span></div>; }
 

@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: pages-${{ github.ref }}
+  group: portfolio-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -21,10 +21,10 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Check out repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
           cache: npm
@@ -38,33 +38,29 @@ jobs:
       - name: Build production site
         run: npm run build
 
-      - name: Add SPA fallback
+      - name: Upload verified build
         if: github.event_name != 'pull_request'
-        run: cp dist/index.html dist/404.html
-
-      - name: Configure GitHub Pages
-        if: github.event_name != 'pull_request'
-        uses: actions/configure-pages@v5
-
-      - name: Upload production artifact
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
+          name: portfolio-dist
           path: dist
+          if-no-files-found: error
+          retention-days: 7
 
   deploy:
-    name: Deploy to GitHub Pages
+    name: Deploy to Render
     if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 5
+    environment: production
+    env:
+      RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
     steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Trigger Render deployment
+        if: env.RENDER_DEPLOY_HOOK_URL != ''
+        run: curl --fail --show-error --silent --request POST "$RENDER_DEPLOY_HOOK_URL"
+
+      - name: Render auto-deploy notice
+        if: env.RENDER_DEPLOY_HOOK_URL == ''
+        run: echo "Build passed. Render deploy hook is not configured; use Render's Git auto-deploy or add the RENDER_DEPLOY_HOOK_URL repository secret."
