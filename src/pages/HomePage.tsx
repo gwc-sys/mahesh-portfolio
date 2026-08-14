@@ -1,8 +1,5 @@
-import { InteractiveTerminal } from '../components/terminal/InteractiveTerminal';
+import { DesktopPortfolio } from '../components/desktop/DesktopPortfolio';
 
 export function HomePage() {
-  return (
-    <InteractiveTerminal />
-  );
+  return <DesktopPortfolio />;
 }
-
