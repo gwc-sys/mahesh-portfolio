@@ -7,6 +7,18 @@ import { NotFoundPage } from './pages/NotFoundPage';
 
 export default function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    const keepRenderAwake = () => {
+      void fetch('/', { cache: 'no-store' }).catch(() => undefined);
+    };
+
+    keepRenderAwake();
+    const intervalId = window.setInterval(keepRenderAwake, 20_000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
   useEffect(() => {
     document.title = 'Mahesh Raskar | Full-Stack Developer';
   }, [location.pathname]);
