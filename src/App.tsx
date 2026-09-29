@@ -1,12 +1,15 @@
 import { AnimatePresence } from 'framer-motion';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { LoadingScreen } from './components/common/LoadingScreen';
 import { RootLayout } from './layouts/RootLayout';
 import { HomePage } from './pages/HomePage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 export default function App() {
   const location = useLocation();
+  const [isBooting, setIsBooting] = useState(true);
+  const finishBoot = useCallback(() => setIsBooting(false), []);
 
   useEffect(() => {
     document.title = 'Mahesh Raskar | Full-Stack Developer';
@@ -27,6 +30,7 @@ export default function App() {
 
   return (
     <>
+      <LoadingScreen isLoading={isBooting} onComplete={finishBoot} />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route element={<RootLayout />}>
