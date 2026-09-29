@@ -2,6 +2,14 @@ import type { Project } from '../types';
 
 export const projects: Project[] = [
   {
+    name: 'OneOrbit',
+    description:
+      'An AI-powered career workspace that helps users discover job opportunities, match roles to their profiles, create ATS-friendly resumes, manage applications, and automate career workflows with human approval.',
+    stack: ['AI', 'Career Automation', 'ATS', 'Workflow Automation'],
+    features: ['Profile-aware job matching', 'ATS-friendly resumes', 'Application tracking', 'Human-approved automation'],
+    status: 'In Progress',
+  },
+  {
     name: 'StackHack.live',
     description:
       'A TypeScript hackathon platform for discovering challenges, organizing teams, and turning ideas into collaborative project submissions.',
